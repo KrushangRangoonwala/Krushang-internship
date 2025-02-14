@@ -1,0 +1,21 @@
+td{
+ width: 16vw;
+ height: 30px;
+ border: 2px solid black;   
+ border-radius: 5px;
+ text-align: center;
+ padding: 4px;
+}
+
+/* #strOutput{
+    border: 2px solid black;
+    border-radius: 10px;
+} */
+
+#funcName{
+    text-align: center;
+}
+
+input{
+    margin-right: 10px;
+}

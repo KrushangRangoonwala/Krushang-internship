@@ -1,0 +1,9 @@
+p {
+    display: inline-block;
+    width: 400px;
+}
+
+.btn {
+    display: inline-block;
+    height: 30px;
+}

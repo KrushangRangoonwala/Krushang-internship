@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task_Manager</title>
+  </head>
+
+  <body onload="checkForPreviousTasks()">
+    <h2>Task Manager</h2>
+    <!-- <input type="text" id="searchItem" name="searchItem" onclick="searchTask()" placeholder="Search your tasks " /> -->
+    <input type="text" id="searchItem" name="searchItem" onclick="removeSearch()" placeholder="Search your tasks " />
+    <button id="searchTask" onclick="searchTask()">Search</button>
+    <button id="removeSearch" onclick="removeSearch()">Remove search</button>
+    <br><br>
+    <input type="text" id="task" name="task" placeholder="Enter your tasks " />
+    <button id="addTask" onclick="addTask()">Add Task</button>
+
+    <ul id="taskList"></ul>
+    <br /><hr />
+
+    <fieldset id="completedTasks">
+      <legend id="legend01">Completed</legend>
+    </fieldset>
+
+    <br /><br />
+    <button onclick="clearAll()">CLEAR ALL</button>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

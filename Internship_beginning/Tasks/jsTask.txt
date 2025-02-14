@@ -1,0 +1,178 @@
+Array : [ 48, 0, 6, 65, 34, 78, 2, 7, 4, 550]
+1) Find max valur from array
+2) Sum of value 
+3) filter and find second max and second min value
+4) find odd and evevn number from array
+
+
+1.Count Vowels in a String
+originalSentence = "JavaScript is awesome";
+// Output: Number of vowels: 8
+
+2. Find the Longest Word
+sampleSentence = "JavaScript is a powerful programming language";
+// Output: The longest word is: programming
+
+3.Concatenate Arrays of Strings
+stringArrays = [['Hello', 'world'], ['JavaScript', 'is', 'fun']];
+// Output: "Hello world JavaScript is fun"
+
+4.Capitalize the First Letter of Each Word
+const originalSentence = "javascript is fun and logical";
+// Output: "Javascript Is Fun And Logical"
+
+5.Replace Spaces with Underscores
+also first latter capital
+originalTextWithSpaces = "Rep lace sp aces with underscores";
+// Output: "Replace_spaces_with_underscores"
+
+6.Find the Average Word Length
+also particulare world 
+const exampleSentence = "Calculate the average length of words in this sentence.";
+// Output: Average Word Length: 4.153846153846154
+
+7.Remove Duplicates from a String
+const stringWithDuplicates = "javascript";
+// Output: "javscript"
+
+8. find age
+
+9. Reverse Words in a Sentence
+const inputSentence = "JavaScript is amazing";
+// Output: "amazing is JavaScript"
+
+10.Extract Domain from URL
+const sampleURL = "https://www.example.com/path/to/page";
+// Output: Domain: www.example.com
+
+11.Extract File Extension
+const exampleFilename = "script.js";
+// Output: File Extension: js
+
+
+12.Extract Length of Words
+const inputWords = ["apple", "banana", "orange", "grape"];
+// Output: Lengths of Words: [5, 6, 6, 5]
+
+13.Format Names
+- Create dynamic array
+const peopleArray = [
+    { firstName: "John", lastName: "Doe" },
+    { firstName: "Alice", lastName: "Smith" },
+    { firstName: "Bob", lastName: "Johnson" }
+];
+// Output: Formatted Names: ["John Doe", "Alice Smith", "Bob Johnson"]
+
+14.Convert Fahrenheit to Celsius
+const fahrenheitTemperatures = [32, 68, 86, 104, 122];
+// Output: Temperatures in Celsius: [0, 20, 30, 40, 50]
+
+
+// --------------------------------------
+15. Find the second largest number in an array:
+findSecondLargest([10, 20, 5, 40]);
+// Output: 20
+
+// -----------------------
+
+16. Rotate elements of an array to the left by a given number of positions:
+create dynamic
+array - [1, 2, 3, 4, 5]
+position - 2 
+
+// --------------------------
+17.  Group consecutive elements of an array into subarrays of specified length:
+array - [1, 2, 3, 4, 5, 6, 7]
+length - 3; 
+
+// Output: [[1, 2, 3], [4, 5, 6], [7]]
+
+
+18. Sort words in a sentence by their length
+
+text - "The quick brown fox jumps over the lazy dog"
+// Output: "The fox the dog over lazy quick brown jumps"
+
+// *********************************************************************
+
+19. craete calculator task
+
+20. abcd task rotate 
+
+ a b c d e f
+
+21 .pelindrom
+
+22 .prime number
+
+23 const salesData = [
+    { date: '2024-01-15', amount: 100, category: 'Electronics' },
+    { date: '2024-01-20', amount: 150, category: 'Clothing' },
+    { date: '2024-02-10', amount: 200, category: 'Electronics' },
+    { date: '2024-01-30', amount: 300, category: 'Electronics' },
+    { date: '2024-02-25', amount: 250, category: 'Clothing' },
+    { date: '2024-03-05', amount: 400, category: 'Furniture' },
+];
+
+const summarizedSales = {
+    '2024-01': {
+        Electronics: 400,
+        Clothing: 150,
+    },
+    '2024-02': {
+        Electronics: 200,
+        Clothing: 250,
+    },
+    '2024-03': {
+        Furniture: 400,
+    },
+};
+
+24.
+const employees = [
+    { name: 'Alice Johnson', department: 'Engineering', age: 30, salary: 85000 },
+    { name: 'Bob Smith', department: 'Marketing', age: 45, salary: 65000 },
+    { name: 'Carol Davis', department: 'Engineering', age: 28, salary: 72000 },
+    { name: 'David Wilson', department: 'Engineering', age: 35, salary: 90000 },
+    { name: 'Eva Adams', department: 'Marketing', age: 32, salary: 72000 },
+    { name: 'Frank Brown', department: 'Sales', age: 50, salary: 80000 },
+];
+search and filter by employee and get it's record
+search and filter by age gap and find out employee list which age is satisfied with given age
+search and filter basedon department 
+
+
+25.
+const sales = [
+    { date: '2024-01-15', amount: 100, category: 'Electronics' },
+    { date: '2024-01-20', amount: 150, category: 'Clothing' },
+    { date: '2024-01-30', amount: 200, category: 'Electronics' },
+    { date: '2024-02-05', amount: 250, category: 'Clothing' },
+    { date: '2024-02-15', amount: 300, category: 'Electronics' },
+    { date: '2024-03-10', amount: 400, category: 'Furniture' },
+    { date: '2024-03-15', amount: 150, category: 'Electronics' },
+];
+
+output :
+{
+  "2024": {
+    "01": [
+      { "date": "2024-01-15", "amount": 100, "category": "Electronics" },
+      { "date": "2024-01-20", "amount": 150, "category": "Clothing" },
+      { "date": "2024-01-30", "amount": 200, "category": "Electronics" }
+    ],
+    "02": [
+      { "date": "2024-02-05", "amount": 250, "category": "Clothing" },
+      { "date": "2024-02-15", "amount": 300, "category": "Electronics" }
+    ],
+    "03": [
+      { "date": "2024-03-10", "amount": 400, "category": "Furniture" },
+      { "date": "2024-03-15", "amount": 150, "category": "Electronics" }
+    ]
+  }
+}
+
+nested group
+first year then month
+
+

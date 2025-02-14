@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Calc</title>
+</head>
+<body>
+    <h3 id="funcName"></h3>
+    <hr>
+    <!-- <input type="text" id="strInput" placeholder="Enter demo String "> -->
+     <textarea id="strInput" name="strInput" cols="50"></textarea><br>
+     <input type="text" id="param1" name="param1" style="display: none;">
+     <input type="text" id="param2" name="param2" style="display: none;">
+     <input type="text" id="param3" name="param3" style="display: none;">
+    <button id="outputBtn">Show Output</button>
+    <button onclick="clearFunc()">clear</button>
+    <hr>
+    <div id="strOutput">
+        <p>Output : </p>
+    </div>
+    <br><hr>
+
+    <table>
+        <tr>
+            <td onclick="calculate(this)">length</td>
+            <td onclick="calculate(this)">at()</td>
+            <td onclick="calculate(this)">[]</td>
+            <td onclick="calculate(this)">charCodeAt()</td>
+        </tr>
+        <tr>
+            <td onclick="calculate(this)">substring()</td>
+            <td onclick="calculate(this)">slice()</td>
+            <td onclick="calculate(this)">substr()</td>
+            <td onclick="calculate(this)">concat()</td>
+        </tr>
+        <tr>
+            <td onclick="calculate(this)">trim()</td>
+            <td onclick="calculate(this)">trimStart()</td>
+            <td onclick="calculate(this)">trimEnd()</td>
+            <td onclick="calculate(this)">repeat()</td>
+        </tr>
+        <tr>
+            <td onclick="calculate(this)">padStart()</td>
+            <td onclick="calculate(this)">padEnd()</td>
+            <td onclick="calculate(this)">toUpperCase()</td>
+            <td onclick="calculate(this)">toLowerCase()</td>  
+        </tr>
+        <tr>
+            <td onclick="calculate(this)">replace()</td>
+            <td onclick="calculate(this)">replaceAll()</td>
+            <td onclick="calculate(this)">split()</td>
+            <td onclick="calculate(this)">includes()</td>
+        </tr>
+        <tr>
+            <td onclick="calculate(this)">indexOf()</td>
+            <td onclick="calculate(this)">lastIndexOf()</td>
+            <td onclick="calculate(this)">startsWith()</td>
+            <td onclick="calculate(this)">endsWith()</td>    
+        </tr>
+    </table>
+    <script src="./script.js"></script>
+</body>
+</html>

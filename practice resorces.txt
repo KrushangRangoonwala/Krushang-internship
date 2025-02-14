@@ -1,0 +1,19 @@
+javaScript practice :
+
+https://www.w3resource.com/javascript-exercises/
+
+https://www.w3schools.com/jsref/default.asp
+
+https://www.geeksforgeeks.org/javascript-examples/#javascript-dom-examples
+
+https://www.geeksforgeeks.org/javascript-examples/#javascript-mini-projects
+
+https://devchallenges.io/challenges  >> good for practice
+
+>>good for practice
+https://www.codewithfaraz.com/article/103/50-html-css-and-javascript-projects-with-source-code-for-beginners#google_vignette	
+
+https://www.frontendmentor.io
+
+Screenshot saved path : 
+c:\Users\DI\AppData\Local\Packages\Microsoft.ScreenSketch_8wekyb3d8bbwe\TempState

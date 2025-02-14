@@ -1,0 +1,21 @@
+table, th, td {
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30vh;
+}
+
+#display{
+    height: 30px;
+    text-align: right;
+}
+
+td {
+ width: 40px;
+ height: 26px;
+ text-align: center;
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task_Manager</title>
+</head>
+
+<body onload="checkForPreviousTasks()">
+<!-- <body onload="clearAll()"> -->
+
+    <h2>Task Manager</h2>
+    <input type="text" id="task" name="task" placeholder="Enter your tasks ">
+    <button id="addTask" onclick="addTask()">Add Task</button>
+
+    <!-- <p id="container"> -->
+    <!-- <div id="container"> -->
+        <ul id="taskList"></ul>
+        <br>
+        <hr>
+
+        <fieldset id="completedTasks">
+           
+        </fieldset>
+    <!-- </div> -->
+    <!-- </p> -->
+    
+    <br>
+    <br>
+    <button onclick="clearAll()">CLEAR ALL</button>
+
+    <!-- <p id="completedTasks"></p> -->
+
+    <!-- <input type="checkbox" id='c' > -->
+    <script src="./script.js"></script>
+</body>
+
+</html>
+
+<!-- <li id=`${c}`>
+    <input type="checkbox" onclick="completeTask(`${this.parentElement.id}`)">
+    <label>
+        ${newTask}
+    </label>
+    <button onclick="deletTask(`${this.parentElement.id}`)">Delete</button>
+    <button onclick="editTask(`${this.parentElement.id}`)">Edit</button>
+</li> -->

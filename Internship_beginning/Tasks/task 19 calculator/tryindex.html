@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        th{
+            height:20px;
+            width:20px;
+            border: 2px solid green;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th onclick="myFunc(this)">a</th>
+            <th onclick="myFunc(this)">b</th>
+        </tr>
+        <tr>
+            <th onclick="myFunc(this)">c</th>
+            <th onclick="myFunc(this)">d</th>
+        </tr>
+    </table>
+
+    <script>
+        function myFunc(tag){
+            let txt = tag.innerText;
+            console.log(txt);
+            console.log(typeof txt);
+        }
+    </script>
+</body>
+
+</html>
