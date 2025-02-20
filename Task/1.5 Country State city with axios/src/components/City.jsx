@@ -86,15 +86,6 @@ const State = () => {
             alert('First Enter Atleast One state');
             navigate('/state');
         }
-
-        // for navbar
-        // let collection = document.getElementsByClassName('navEle');
-        // console.log(collection[3]);
-        // collection[0].setAttribute('class', 'navEle');
-        // collection[1].setAttribute('class', 'navEle');
-        // collection[2].setAttribute('class', 'navEle');
-        // collection[3].setAttribute('class', 'active navEle');
-
     }, [])
 
     useEffect(() => {

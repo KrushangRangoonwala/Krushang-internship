@@ -6,21 +6,19 @@ import { useNavigate } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://192.168.1.56:3000/country';
+axios.defaults.baseURL = 'http://192.168.1.56:3000';
 
 const Country = () => {
     let navigate = useNavigate();
     const [country, setCountry] = useState([{}]);
     const [countryObj, setCountryObj] = useState({});
     const [toggle, setToggle] = useState(false);
-    const [data, setData] = useState([])
+    // const [data, setData] = useState([])
+    
     async function getAllCountry() {
         try {
-            let respose = await axios.get('/get');
-            console.log('respose ', respose);
-
+            let respose = await axios.get('/country/get');
             let data = respose.data.data;
-            console.log('respose.data.data ', data);
 
             (data && data.length > 0) && setCountry(data);
 
@@ -29,41 +27,41 @@ const Country = () => {
         }
     }
 
-
-    async function viewCountry(id) {
-        console.log(id);
-        let response = await axios.put(`/get/${id}`);
-        console.log(response.data.data);
-    }
-
     async function editCountry(id, val) {
-        console.log(id);
-        let response = await axios.put(`/update/${id}`, val)
-        getAllCountry();
+        try {
+            let response = await axios.put(`/country/update/${id}`, val)   
+        } catch (error) {
+            console.log('Error msg ',error)
+        }finally{
+            getAllCountry();
+        }
     }
 
     async function deleteCountry(id) {
-        let response = await axios.delete(`/delete/${id}`)
-        getAllCountry();
+        try {
+            let response = await axios.delete(`/country/delete/${id}`)
+        } catch (error) {
+            console.log('Error msg ',error)
+        }finally{
+            getAllCountry();
+        }
     }
 
     async function addCountry(val) {
-        let reponse = await axios.post('/create', val);
-        getAllCountry();
+        try {
+            let reponse = await axios.post('/country/create', val);
+        } catch (error) {
+            console.log('Error msg ',error)
+        }finally{
+            getAllCountry();
+        }
     }
-
-    function previousPage() {
-
-    }
-
-
 
     useEffect(() => {
         getAllCountry();
     }, [])
 
     useEffect(() => {
-        console.log("useefcet country ", country)
         localStorage.setItem('country', JSON.stringify(country));
     }, [country])
 
@@ -71,12 +69,10 @@ const Country = () => {
         return !(country.includes(value));
     }
 
-    const handleEdit= async (value)=>{
-        console.log(value,"value")
-        let response = await axios.get(`/get/${value.id}`) 
-        console.log('...  ',response)
-        setData(response.data.data);
-    }
+    // const handleEdit = async (value) => {
+    //     let response = await axios.get(`/country/get/${value.id}`)
+    //     setData(response.data.data);
+    // }
 
     return (
         <>
@@ -93,42 +89,40 @@ const Country = () => {
                     })}
 
                     onSubmit={(values, formik) => {
-                        // console.log(values);
                         let country = {
                             name: values.country,
                         }
+                        console.log(toggle);
                         toggle == true ? editCountry(values.edit_id, country) : addCountry(country);
                         setToggle(false);
-                        // console.log(formik.touched)
                         formik.setValues({
                             country: '',
                             edit_id: ''
                         })
-                        navigate('/country');
-                        // location.reload();
+                        // navigate('/country');
                     }}
                 >
 
                     {(formik) =>
                         <Form>
                             {useEffect(() => {
-                                console.log(countryObj)
                                 formik.setValues(countryObj);
                             }, [countryObj])}
 
                             <h2><label>Country</label><br /></h2>
 
-                            <button type='button' onClick={() => {
+                            <Field name="edit_id" id='edit_id' type='text' hidden />
+                            <Field name="country" id='country' type='text' />
+                            {formik.touched.country && formik.errors.country ? <div className='error'>{formik.errors.country}</div> : ''}
+
+                            {/* <button type='button' onClick={() => {
                                 setToggle(false);
                                 formik.setValues({
                                     country: '',
                                     edit_id: ''
                                 })
-                            }}> Add </button>
+                            }}> Add </button> */}
 
-                            <Field name="edit_id" id='edit_id' type='text' hidden />
-                            <Field name="country" id='country' type='text' />
-                            {formik.touched.country && formik.errors.country ? <div className='error'>{formik.errors.country}</div> : ''}
 
                             <br /><br />
                             <button type='submit'>Submit</button>
@@ -138,10 +132,10 @@ const Country = () => {
             </div>
             <br />
 
-            <div className='btnnn'>
+            {/* <div className='btnnn'>
                 <button onClick={() => navigate('/')}>Home</button>
                 <button onClick={() => navigate('/state')}>Next</button>
-            </div>
+            </div> */}
             <br />
             <br />
 
@@ -161,12 +155,12 @@ const Country = () => {
                             <tr key={index}>
                                 <th>{index + 1}</th>
                                 <th>{value.name}</th>
-                                
-                                <th><button onClick={() => viewCountry(value.id)}>View</button></th>
+
+                                <th><button onClick={() =>  navigate(`/country/${value.id}`)}>View</button></th>
                                 <th><button onClick={() => {
                                     setToggle(true);
                                     setCountryObj({ country: value.name, edit_id: value.id });
-                                    handleEdit((value))
+                                    // handleEdit((value))
                                 }}>Edit</button></th>
 
                                 <th><button onClick={() => deleteCountry(value.id)}>Delete</button></th>

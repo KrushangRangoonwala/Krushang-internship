@@ -1,0 +1,48 @@
+.pop_box {
+    background-color: rgb(190 255 179);
+    position: fixed;
+    width: 180px;
+    right: 10px;
+    /* border: 1px solid black; */
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1;
+    margin: 55px 24px;
+    font-family: system-ui;
+}
+
+.navbar {
+    height: 50px;
+    background-color: rgb(198 232 255);
+    position: fixed;
+    width: 100%;
+}
+
+.showBtn {
+    display: flex;
+    justify-content: end;
+}
+
+.profileIcon {
+    margin-right: 10px;
+    position: relative;
+    left: 60px;
+    z-index: 1;
+}
+
+.profileBg {
+    margin-right: 15px;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    z-index: 0;
+}
+
+.belowNavbar {
+    margin-top: 50px;
+    position: fixed;
+    /* top: 100px; */
+    height: 10px;
+    width: 100%;
+    background-color: white;
+}
