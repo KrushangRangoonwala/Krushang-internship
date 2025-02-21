@@ -1,7 +1,9 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import './style.css'
+import { useNavigate } from 'react-router'
+import axios from 'axios'
 
 let initialValues = {
     email: '',
@@ -10,6 +12,20 @@ let initialValues = {
 
 const Signin = () => {
     const [pswFlag, setPswFlag] = useState(true);
+    let navigate = useNavigate()
+
+    async function handleSignIn(values) {
+        let formData = new FormData();
+        formData.append('emailId', values.email);
+        formData.append('password', values.psw);
+
+        let res = await axios.post('/login', formData, { headers: { "Content-Type": 'application/json' } })
+
+        let token = [];
+        console.log(JSON.parse(window.atob(res.data.data.token)));
+        token.push(JSON.parse(window.atob(res.data.data.token)));
+        localStorage.setItem('token', JSON.stringify(token));
+    }
 
     const formik = useFormik({
         initialValues: initialValues,
@@ -18,7 +34,9 @@ const Signin = () => {
             psw: Yup.string().required('* Required'),
         }),
         onSubmit: values => {
-            console.log(values)
+            console.log(values);
+            handleSignIn(values);
+            navigate('/',{ replace : true });
         }
     })
 
@@ -32,7 +50,7 @@ const Signin = () => {
                         <div><input id="email" name="email" type="email" className='input-text' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.email} />
                             {formik.touched.email && formik.errors.email ? (<div className='error'>{formik.errors.email}</div>) : null}</div>
                     </div>
-                    
+
                     <div className='grid-box-2'>
                         <label htmlFor='psw'>Password</label>
                         <div className='sideIcon'>
@@ -49,7 +67,8 @@ const Signin = () => {
                         <button type="submit" className='submitBtn'>SignIn</button>
                     </div>
                 </form>
-                <span className='link'>Forgot Possword</span>
+                <span className='link' onClick={() => navigate('/signup')}>Create an account</span><br />
+                <span className='link' onClick={() => navigate('/forgotPassword')}>Forgot Possword</span>
             </div>
         </>
     )

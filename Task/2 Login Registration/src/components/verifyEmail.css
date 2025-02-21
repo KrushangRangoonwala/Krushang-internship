@@ -1,4 +1,4 @@
-#verifyEmail{
+.popup_div{
     height: 300px;
     width: 400px;
     background-color:  #4ec9c9;;
@@ -8,7 +8,7 @@
     border-radius: 40px;
 }
 
-#verifybg{
+.popup_bg{
     position: fixed;
     background-color: rgb(128 128 128 / 60%);
     width: 100%;
