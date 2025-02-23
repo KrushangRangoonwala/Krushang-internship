@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import './style.css'
+import axios from 'axios'
+import { useNavigate } from 'react-router'
 
 let initialValues = {
     oldPsw: '',
@@ -9,7 +11,24 @@ let initialValues = {
     confirmNewPsw: '',
 }
 
+async function handleChangePassword(values) {
+    let token = JSON.parse(localStorage.getItem('token'));
+    let userObj = token[token.length - 1];
+    let formData = new FormData();
+    formData.append('Id', userObj.Id);
+    formData.append('oldPassword', values.oldPsw);
+    formData.append('newPassword', values.newPsw);
+    try {
+        let response = await axios.post('/changePassword', formData, { headers: { "Content-Type": "application/json" } });
+        //IF ERROR NOT OCCURED THEN NEVIFGATE TO HOME PAGE
+        navigate('/');
+    } catch (error) {
+        console.log(error); // HNDLE IF OLD PASWORD IS CORRECT OR NOT & ANY OTHER ERRORS
+    }
+}
+
 const ChangePasword = () => {
+    let navigate = useNavigate();
     const [oldPsw, setOldPsw] = useState(true);
     const [newPsw, setNewPsw] = useState(true);
     const [cnNewPsw, setCnNewPsw] = useState(true);
@@ -23,6 +42,7 @@ const ChangePasword = () => {
         }),
         onSubmit: values => {
             console.log(values)
+            handleChangePassword(values);
         }
     })
 
@@ -40,10 +60,10 @@ const ChangePasword = () => {
                             <img src='Screenshot 2025-02-20 095142.png' className='toggleIcon' />
                             {oldPsw ? <img src='hidden.png' className='toggleIcon' onClick={() => setOldPsw(false)} />
                                 : <img src='eye.png' className='toggleIcon' onClick={() => setOldPsw(true)} />}
-                        </div>                            
+                        </div>
                         {formik.touched.oldPsw && formik.errors.oldPsw ? (<div className='error'>{formik.errors.oldPsw}</div>) : null}
                     </div>
-                    <div className='submitBtnDiv'><button type='button'>Verify</button></div>
+                    {/* <div className='submitBtnDiv'><button type='button'>Verify</button></div> */}
                     <div className='grid-box-2'>
                         <label htmlFor='newPsw'>New Password</label>
                         <div className='sideIcon'>
@@ -51,7 +71,7 @@ const ChangePasword = () => {
                             <img src='Screenshot 2025-02-20 095142.png' className='toggleIcon' />
                             {newPsw ? <img src='hidden.png' className='toggleIcon' onClick={() => setNewPsw(false)} />
                                 : <img src='eye.png' className='toggleIcon' onClick={() => setNewPsw(true)} />}
-                        </div>                        
+                        </div>
                         {/* {formik.touched.newPsw && formik.errors.newPsw ? (<div className='error'>{formik.errors.newPsw}</div>) : null} */}
                     </div>
 
@@ -62,7 +82,7 @@ const ChangePasword = () => {
                             <img src='Screenshot 2025-02-20 095142.png' className='toggleIcon' />
                             {cnNewPsw ? <img src='hidden.png' className='toggleIcon' onClick={() => setCnNewPsw(false)} />
                                 : <img src='eye.png' className='toggleIcon' onClick={() => setCnNewPsw(true)} />}
-                        </div>                        
+                        </div>
                         {/* {formik.touched.confirmNewPsw && formik.errors.confirmNewPsw ? (<div className='error'>{formik.errors.confirmNewPsw}</div>) : null} */}
                     </div>
                     {((formik.touched.newPsw && formik.errors.newPsw) || (formik.touched.confirmNewPsw && formik.errors.confirmNewPsw)) ? (formik.errors.confirmNewPsw ? <div className='error'>{formik.errors.confirmNewPsw}</div> : <div className='error'>{formik.errors.confirmNewPsw}</div>) : (formik.touched.newPsw && formik.touched.confirmNewPsw && (formik.values.newPsw != formik.values.confirmNewPsw)) ? <><div className='error'> New Password isn't Matching</div></> : null}
@@ -73,7 +93,7 @@ const ChangePasword = () => {
                         <button type="submit" className='submitBtn'>Change Password</button>
                     </div>
                 </form>
-                <span className='link'>Forgot Possword</span>
+                <span className='link' onClick={() => navigate('/forgotPassword')}>Forgot Old Possword</span>
             </div>
         </>
     )

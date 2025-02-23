@@ -8,8 +8,29 @@ import axios from 'axios'
 const VerifyEmail = ({ email }) => {
     let val = useContext(userContext)
 
+    async function verifyEmail(email) {
+        document.getElementById('loading_bg').style.display = 'flex';
+        try {
+            let response = await axios.post('/verifyEmail', {
+                "emailId": email
+            });
+            document.getElementById('loading_bg').style.display = 'none';
+            document.getElementById('verifybg').style.display = 'flex';
+            
+            // let token = [];
+            // console.log(JSON.parse(window.atob(response.data.data.token)));
+            // token.push(JSON.parse(window.atob(response.data.data.token)));
+            // localStorage.setItem('token',JSON.stringify(token));
+        } catch (err) {
+            console.log(err);
+            document.getElementById('loading_bg').style.display = 'none';
+            document.getElementById('emailExist').style.display = 'flex';
+        }
+    }
+
     function resendOtp() {
-        console.log('asdas')
+        console.log('asdas');
+        verifyEmail(email);
     }
 
     async function verifyOtp(otp) {
@@ -29,6 +50,7 @@ const VerifyEmail = ({ email }) => {
 
     function removePopup(){
         document.getElementById('verifybg').style.display = 'none';
+        document.getElementById('otpErr').style.display = 'none';
     }
 
     const formik = useFormik({
@@ -42,7 +64,10 @@ const VerifyEmail = ({ email }) => {
             formik.setFieldValue('otp','');
             formik.touched.otp = false;
             document.getElementById('otpErr').style.display = 'none';
-
+            let token = [];     // newUpdate
+            console.log(JSON.parse(window.atob(response.data.data.token)));     // newUpdate
+            token.push(JSON.parse(window.atob(response.data.data.token)));      // newUpdate
+            localStorage.setItem('token',JSON.stringify(token));        // newUpdate
         }
     })
     return (

@@ -8,15 +8,15 @@ import axios from 'axios'
 const ForgotPassword = () => {
   let navigate = useNavigate();
 
-  async function handleForgotPassword(values) {
+  async function handleForgotPassword(values) {  //** HANDLE IF EMAIL EXIST ON DATABASE OR NOT */
     let formData = new FormData();
     formData.append('emailId', values.email);
     try {
-      // let res = await axios.post('/login',formData, {headers : { "Content-Type" : 'application/json'}})
-      let res = await axios.post('/forgotPassword', formData, { headers: { "Content-Type": "application/json" } })  //api error : Status Code: 415 Unsupported Media Type
-      // let res = await axios.post('/forgotPassword', { email : values.email }, { headers: { "Content-Type": "aplication/json" } })  //api error : Status Code: 415 Unsupported Media Type
+      let res = await axios.post('/forgotPassword', formData, { headers: { "Content-Type": "application/json" } }) 
       console.log(res.data);
-    } catch (error) {
+      // IF NO ERROR THEN 
+      navigate('/signin');
+    } catch (error) {     //** HANDLE IF EMAIL EXIST ON DATABASE OR NOT */
       console.log(error)
     }
   }

@@ -1,0 +1,277 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\controllers\\usercontroller2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\controllers\\usercontroller2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|ViewDataWindow_MSSQL__/localhost/userCrudApi/True/SqlTable/dbo.EmailVerification.sql||{0058A1F7-65F3-4DB9-B3D0-CA7E64DD73CD}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\services\\mailservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\models\\requests\\changepassrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\models\\requests\\changepassrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\models\\db\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\models\\db\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\models\\db\\usercrudapicontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\models\\db\\usercrudapicontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\models\\response\\customresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\models\\response\\customresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\models\\requests\\email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\models\\requests\\email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\models\\db\\emailverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\models\\db\\emailverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\models\\requests\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\models\\requests\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|c:\\users\\krushang\\onedrive\\desktop\\krushang-internship\\signin signup api backend code\\user-crud-api\\user-crud-api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{12F377B4-D34A-4B7C-A112-8E9E7F61A93F}|user-crud-API\\user-crud-API.csproj|solutionrelative:user-crud-api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MailService.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Services\\MailService.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Services\\MailService.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Services\\MailService.cs",
+              "RelativeToolTip": "user-crud-API\\Services\\MailService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T11:07:10.133Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ChangePassRequest.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\Requests\\ChangePassRequest.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Models\\Requests\\ChangePassRequest.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\Requests\\ChangePassRequest.cs",
+              "RelativeToolTip": "user-crud-API\\Models\\Requests\\ChangePassRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T05:01:41.015Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController2.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Controllers\\UserController2.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Controllers\\UserController2.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Controllers\\UserController2.cs",
+              "RelativeToolTip": "user-crud-API\\Controllers\\UserController2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T06:54:27.005Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "dbo.EmailVerification.sql",
+              "DocumentMoniker": "ViewDataWindow_MSSQL__/localhost/userCrudApi/True/SqlTable/dbo.EmailVerification.sql",
+              "ToolTip": "ViewDataWindow_MSSQL__/localhost/userCrudApi/True/SqlTable/dbo.EmailVerification.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2025-02-20T08:02:34.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Person.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\DB\\Person.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Models\\DB\\Person.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\DB\\Person.cs",
+              "RelativeToolTip": "user-crud-API\\Models\\DB\\Person.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T07:36:53.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "user-crud-API\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T07:37:44.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\appsettings.json",
+              "RelativeDocumentMoniker": "user-crud-API\\appsettings.json",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\appsettings.json",
+              "RelativeToolTip": "user-crud-API\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-19T07:32:20.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Program.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Program.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Program.cs",
+              "RelativeToolTip": "user-crud-API\\Program.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAsAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T07:29:52.313Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "user-crud-API\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T07:38:15.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "userCrudApiContext.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\DB\\userCrudApiContext.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Models\\DB\\userCrudApiContext.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\DB\\userCrudApiContext.cs",
+              "RelativeToolTip": "user-crud-API\\Models\\DB\\userCrudApiContext.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAEIAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T07:31:56.121Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CustomResponse.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\Response\\CustomResponse.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Models\\Response\\CustomResponse.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\Response\\CustomResponse.cs",
+              "RelativeToolTip": "user-crud-API\\Models\\Response\\CustomResponse.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAUAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-19T10:07:27.764Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "user-crud-API\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T08:37:07.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Email.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\Requests\\Email.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Models\\Requests\\Email.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\Requests\\Email.cs",
+              "RelativeToolTip": "user-crud-API\\Models\\Requests\\Email.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T10:20:54.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "EmailVerification.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\DB\\EmailVerification.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Models\\DB\\EmailVerification.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\DB\\EmailVerification.cs",
+              "RelativeToolTip": "user-crud-API\\Models\\DB\\EmailVerification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T07:02:37.67Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\Requests\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "user-crud-API\\Models\\Requests\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Models\\Requests\\LoginRequest.cs",
+              "RelativeToolTip": "user-crud-API\\Models\\Requests\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-20T05:01:28.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "user-crud-API\\Properties\\launchSettings.json",
+              "ToolTip": "C:\\Users\\KRUSHANG\\OneDrive\\Desktop\\Krushang-internship\\signin signup API backend code\\user-crud-API\\user-crud-API\\Properties\\launchSettings.json",
+              "RelativeToolTip": "user-crud-API\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-02-19T07:19:08.742Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

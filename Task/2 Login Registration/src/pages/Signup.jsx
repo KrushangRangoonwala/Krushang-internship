@@ -67,10 +67,10 @@ const Signup = () => {
             document.getElementById('loading_bg').style.display = 'none';
             document.getElementById('verifybg').style.display = 'flex';
             
-            let token = [];
-            console.log(JSON.parse(window.atob(response.data.data.token)));
-            token.push(JSON.parse(window.atob(response.data.data.token)));
-            localStorage.setItem('token',JSON.stringify(token));
+            // let token = [];
+            // console.log(JSON.parse(window.atob(response.data.data.token)));
+            // token.push(JSON.parse(window.atob(response.data.data.token)));
+            // localStorage.setItem('token',JSON.stringify(token));
         } catch (err) {
             console.log(err);
             document.getElementById('loading_bg').style.display = 'none';
@@ -101,7 +101,7 @@ const Signup = () => {
         onSubmit: values => {
             console.log(values);
             signUpUser(values);
-            navigate('/',{ replace: true });
+            navigate('/',{ replace: true });  // MAY BE IN TRY - BLOCK of axios api
         }
 
     })
@@ -113,7 +113,9 @@ const Signup = () => {
         <>
             <Loading />
             <EmailExist />
-            <userContext.Provider value={{ toggleVerifyEmail, setToggleVerifyEmail }}>
+
+            {/* ******* remove contect just pass prop   */}
+            <userContext.Provider value={{ toggleVerifyEmail, setToggleVerifyEmail }}>  
                 <VerifyEmail email={formik.values.email} />
             </userContext.Provider>
 

@@ -11,10 +11,10 @@ function App() {
   const [count, setCount] = useState(0)
   const [checkLogin, setCheckLogin] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
     // setCheckLogin(localStorage.getItem('token'));
-    console.log('sdfafddf');
-  })  //on LogOut it should run OR on every api request it should be run
+    // console.log('sdfafddf');
+  // })  //on LogOut it should run OR on every api request it should be run
 
   return (
     <>
