@@ -1,37 +1,55 @@
 import React, { useEffect, useState } from 'react'
 import Navbar from '../components/Navbar'
 import { useNavigate } from 'react-router';
+import UserCard from '../components/UserCard';
+import AllUser from '../components/AllUser';
+import '../components/allUser.css'
+import axios from 'axios';
+
 
 const Home = () => {
-  // const [checkLogin, setCheckLogin] = useState([]); // error: 
   let navigate = useNavigate()
   const [user, setUser] = useState({})
 
-  useEffect(() => {
-    setTimeout(() => console.log(user), 500);
-  }, [user]);
+  async function getUser() {
+    try {
+      let token = JSON.parse(localStorage.getItem('token'));
+      let userObj = token[token.length - 1];
+      let response = await axios(`/get/${userObj.Id}`);
+      setUser(response.data.data);
+    } catch (error) {
+      console.log(error)
+      // console.log("catch")
+      if (error.response.data.message == "Record Not Found") {
+        alert('User is not Found');
+        navigate('/signin');
+      }
+    }
+  }
 
-
   useEffect(() => {
-    console.log('home..')
+    getUser();
     setTimeout(() => {
       let token = JSON.parse(localStorage.getItem('token'));
       console.log('token ', token);
-      // (!token) ? navigate('./signin') : (token.length === 0) ? navigate('./signin') : setUser(token[token.length]); // still navigate() is running 
       if (!token) {
-        navigate('./signin');
+        alert('Please first SignIn')
+        navigate('/signin');
       } else if (token.length === 0) {
-        navigate('./signin');
-      } else {
-        setUser(token[token.length-1]);
-        console.log('user ',user);
-      }      
+        alert('Please first SignIn')
+        navigate('/signin');
+      }
     }, 500);
   }, [])
 
   return (
     <>
-      <Navbar />
+      <Navbar role={user.role}/>
+      <div>
+        <div className='table-container' style={{ paddingTop: '0px' }}>
+          <UserCard user={user}/>
+        </div>
+      </div>
     </>
   )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import './style.css'
@@ -11,21 +11,7 @@ let initialValues = {
     confirmNewPsw: '',
 }
 
-async function handleChangePassword(values) {
-    let token = JSON.parse(localStorage.getItem('token'));
-    let userObj = token[token.length - 1];
-    let formData = new FormData();
-    formData.append('Id', userObj.Id);
-    formData.append('oldPassword', values.oldPsw);
-    formData.append('newPassword', values.newPsw);
-    try {
-        let response = await axios.post('/changePassword', formData, { headers: { "Content-Type": "application/json" } });
-        //IF ERROR NOT OCCURED THEN NEVIFGATE TO HOME PAGE
-        navigate('/');
-    } catch (error) {
-        console.log(error); // HNDLE IF OLD PASWORD IS CORRECT OR NOT & ANY OTHER ERRORS
-    }
-}
+// useEffect(() => document.getElementById('oldPsw').focus(), []);  // If write useEffect outside main functional component (in this page `ChangePasword`), then it will run before `ChangePasword` component amount to page. So, it give error that "Cannot get element thats id is 'oldPsw'"
 
 const ChangePasword = () => {
     let navigate = useNavigate();
@@ -33,12 +19,43 @@ const ChangePasword = () => {
     const [newPsw, setNewPsw] = useState(true);
     const [cnNewPsw, setCnNewPsw] = useState(true);
 
+    useEffect(() => {
+        document.getElementById('oldPsw').focus();
+        setTimeout(() => {
+            let token = JSON.parse(localStorage.getItem('token'));
+            console.log('token ', token);
+            if (!token) {
+                alert('Please first SignIn')
+                navigate('/signin');
+            } else if (token.length === 0) {
+                alert('Please first SignIn')
+                navigate('/signin');
+            }
+        }, 500);
+    }, [])
+
+    async function handleChangePassword(values) {
+        let token = JSON.parse(localStorage.getItem('token'));
+        let userObj = token[token.length - 1];
+        try {
+            let response = await axios.post('/changePassword', { 'Id': userObj.Id, 'oldPassword': values.oldPsw, 'newPassword': values.newPsw });
+            navigate('/');
+            alert('Your Password Changed Successfully');
+        } catch (error) {
+            console.log(error);
+            if (error.response.data.message == "Incorrect Old Password") {
+                // confirm('Old Password is Incorrect \nIf you forgot password press "Ok"') && navigate('/forgotPassword');
+                alert('Incorrect Old Password \nIf you forget Password, then click on "Forget Password"');
+            }
+        }
+    }
+
     const formik = useFormik({
         initialValues: initialValues,
         validationSchema: Yup.object({
             oldPsw: Yup.string().required('* Required'),
-            newPsw: Yup.string().required('* Required').min(8, 'more then 8 character').test('unique', 'Contains atleast one Number Uppercase Lower case digit', (value) => /[!@#$%^&*(),.?":{}|]/.test(value) && /[a-z]/.test(value) && /[A-Z]/.test(value) && /\d/.test(value)),
-            confirmNewPsw: Yup.string().required('* Required').min(8, 'more then 8 character').test('unique', 'Contains atleast one Number Uppercase Lower case digit', (value) => /[!@#$%^&*(),.?":{}|]/.test(value) && /[a-z]/.test(value) && /[A-Z]/.test(value) && /\d/.test(value)),
+            newPsw: Yup.string().required('* Required').min(8, 'more then 8 character').test('unique', '* Should Contains Atleast one Uppercase, Lowercase, Digit, Special Character ', (value) => /[!@#$%^&*(),.?":{}|]/.test(value) && /[a-z]/.test(value) && /[A-Z]/.test(value) && /\d/.test(value)),
+            confirmNewPsw: Yup.string().required('* Required').min(8, 'more then 8 character').test('unique', '* Should Contains Atleast one Uppercase, Lowercase, Digit, Special Character ', (value) => /[!@#$%^&*(),.?":{}|]/.test(value) && /[a-z]/.test(value) && /[A-Z]/.test(value) && /\d/.test(value)),
         }),
         onSubmit: values => {
             console.log(values)
@@ -63,7 +80,6 @@ const ChangePasword = () => {
                         </div>
                         {formik.touched.oldPsw && formik.errors.oldPsw ? (<div className='error'>{formik.errors.oldPsw}</div>) : null}
                     </div>
-                    {/* <div className='submitBtnDiv'><button type='button'>Verify</button></div> */}
                     <div className='grid-box-2'>
                         <label htmlFor='newPsw'>New Password</label>
                         <div className='sideIcon'>
@@ -72,7 +88,6 @@ const ChangePasword = () => {
                             {newPsw ? <img src='hidden.png' className='toggleIcon' onClick={() => setNewPsw(false)} />
                                 : <img src='eye.png' className='toggleIcon' onClick={() => setNewPsw(true)} />}
                         </div>
-                        {/* {formik.touched.newPsw && formik.errors.newPsw ? (<div className='error'>{formik.errors.newPsw}</div>) : null} */}
                     </div>
 
                     <div className='grid-box-2'>
@@ -83,11 +98,8 @@ const ChangePasword = () => {
                             {cnNewPsw ? <img src='hidden.png' className='toggleIcon' onClick={() => setCnNewPsw(false)} />
                                 : <img src='eye.png' className='toggleIcon' onClick={() => setCnNewPsw(true)} />}
                         </div>
-                        {/* {formik.touched.confirmNewPsw && formik.errors.confirmNewPsw ? (<div className='error'>{formik.errors.confirmNewPsw}</div>) : null} */}
                     </div>
-                    {((formik.touched.newPsw && formik.errors.newPsw) || (formik.touched.confirmNewPsw && formik.errors.confirmNewPsw)) ? (formik.errors.confirmNewPsw ? <div className='error'>{formik.errors.confirmNewPsw}</div> : <div className='error'>{formik.errors.confirmNewPsw}</div>) : (formik.touched.newPsw && formik.touched.confirmNewPsw && (formik.values.newPsw != formik.values.confirmNewPsw)) ? <><div className='error'> New Password isn't Matching</div></> : null}
-
-                    {/* {(formik.touched.)} */}
+                    {((formik.touched.newPsw && formik.errors.newPsw) || (formik.touched.confirmNewPsw && formik.errors.confirmNewPsw)) ? (formik.errors.confirmNewPsw ? <div className='error'>{formik.errors.confirmNewPsw}</div> : <div className='error'>{formik.errors.newPsw}</div>) : (formik.touched.newPsw && formik.touched.confirmNewPsw && (formik.values.newPsw != formik.values.confirmNewPsw)) ? <><div className='error'> New Password isn't Matching</div></> : null}
                     <br />
                     <div className='submitBtnDiv'>
                         <button type="submit" className='submitBtn'>Change Password</button>

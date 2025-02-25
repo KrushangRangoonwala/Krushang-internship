@@ -1,5 +1,5 @@
 import React from 'react'
-import './verifyEmail.css'
+// import './verifyEmail.css'
 import './Loading.css'
 
 const Loading = () => {

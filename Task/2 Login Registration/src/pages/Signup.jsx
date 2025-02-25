@@ -7,9 +7,9 @@ import axios from 'axios'
 import Loading from '../components/Loading'
 import { userContext } from '../context/context'
 import EmailExist from '../components/EmailExist'
-import { useNavigate } from 'react-router'
+import { NavLink, useNavigate } from 'react-router'
 
-axios.defaults.baseURL = 'http://192.168.1.32:5000/user'
+axios.defaults.baseURL = 'http://192.168.1.184:5000/user'
 
 let initialValues = {
     firstName: '',
@@ -26,34 +26,30 @@ let initialValues = {
 const Signup = () => {
     const [pswFlag, setPswFlag] = useState(true);
     const [cnpswFlag, setCnPswFlag] = useState(true);
-    const [toggleVerifyEmail, setToggleVerifyEmail] = useState(false)
+    const [toggleVerifyEmail, setToggleVerifyEmail] = useState(false);
     const [email, setEmail] = useState('!');
     let navigate = useNavigate();
 
     async function signUpUser(values) {
-        // let payload = {
-        //     "emailId": values.email,
-        //     "password": values.psw,
-        //     "firstName": values.firstName,
-        //     "lastName": values.lastName,
-        //     "contactNo": values.cNo,
-        //     "birthDate": values.dob,
-        //     "gender": values.gender,
-        // };
-        // console.log('123123')
-        let formData = new FormData();
-        formData.append('emailId', values.email);
-        formData.append('password', values.psw);
-        formData.append('firstName', values.firstName);
-        formData.append('lastName', values.lastName);
-        formData.append('contactNo', values.cNo);
-        formData.append('birthDate', values.dob);
-        formData.append('gender', values.gender);
-        console.log('FormData ',formData);
+        let payload = {
+            "emailId": values.email,
+            "password": values.psw,
+            "firstName": values.firstName,
+            "lastName": values.lastName,
+            "contactNo": `${values.cNo}`,
+            "birthDate": values.dob,
+            "gender": values.gender,
+        };
+        console.log("payload ",payload)
         try {
-            let res = await axios.post('/register', formData, {headers : { "Content-Type":
-                'application/json'}})
+            let res = await axios.post('/register', payload)
+            let token = [];
+            console.log(JSON.parse(window.atob(res.data.data.token)));
+            token.push(JSON.parse(window.atob(res.data.data.token)));
+            localStorage.setItem('token', JSON.stringify(token));
+            navigate('/')
         } catch (error) {
+            alert('You are not signed up because of some error\nplease try again leter')
             console.log(error);
         }
     }
@@ -64,17 +60,27 @@ const Signup = () => {
             let response = await axios.post('/verifyEmail', {
                 "emailId": email
             });
+
+            console.log('verifyEmail success');
+            console.log(response.data);
             document.getElementById('loading_bg').style.display = 'none';
             document.getElementById('verifybg').style.display = 'flex';
-            
-            // let token = [];
-            // console.log(JSON.parse(window.atob(response.data.data.token)));
-            // token.push(JSON.parse(window.atob(response.data.data.token)));
-            // localStorage.setItem('token',JSON.stringify(token));
+            document.getElementById('otp').focus();
         } catch (err) {
-            console.log(err);
+            console.log("err.response.data ", err.response.data);
             document.getElementById('loading_bg').style.display = 'none';
-            document.getElementById('emailExist').style.display = 'flex';
+
+            console.log("err.response.data",err.response.data)
+            if (!err.response.data.success) {
+                alert(err.response.data.message)
+                console.log('registered email');
+                // confirm('Email Already Registered \n If you want to SignIn press "Okay"') && navigate('/signin');
+                // alert('Email Already Registered \nIf you want to SignIn, then click on "signin"');
+            } else if (err.response.data.message == "Email Already Verified") {
+                console.log('Verified email');
+                setToggleVerifyEmail(true)
+            }
+            // document.getElementById('emailExist').style.display = 'flex';
         }
     }
 
@@ -82,6 +88,8 @@ const Signup = () => {
         (toggleVerifyEmail) && setEmail(formik.values.email);
         (toggleVerifyEmail) ? formik.setFieldValue('verifyEmail', true) : formik.setFieldValue('verifyEmail', false);
     }, [toggleVerifyEmail])
+
+    useEffect(() => document.getElementById('firstName').focus(), []);
 
 
     const formik = useFormik({
@@ -92,8 +100,8 @@ const Signup = () => {
             email: Yup.string().email('* Enter valid email').required('* Required'),
             verifyEmail: Yup.boolean().oneOf([true], 'You need to verify your email'),
             cNo: Yup.number().required('* Required').min(5999999999, '* Enter valid Contact No').max(9999999999, '* Should be of 10-digit'),
-            psw: Yup.string().required('* Required').min(8, 'more then 8 character').test('unique', 'Contains atleast one Number Uppercase Lower case digit', (value) => /[!@#$%^&*(),.?":{}|]/.test(value) && /[a-z]/.test(value) && /[A-Z]/.test(value) && /\d/.test(value)),
-            confirmPsw: Yup.string().required('* Required').min(8, 'more then 8 character').test('unique', 'Contains atleast one Number Uppercase Lower case digit', (value) => /[!@#$%^&*(),.?":{}|]/.test(value) && /[a-z]/.test(value) && /[A-Z]/.test(value) && /\d/.test(value)),
+            psw: Yup.string().required('* Required').min(8, 'more then 8 character').test('unique', '* Should Contains Atleast one Uppercase, Lowercase, Digit, Special Character ', (value) => /[!@#$%^&*(),.?":{}|]/.test(value) && /[a-z]/.test(value) && /[A-Z]/.test(value) && /\d/.test(value)),
+            confirmPsw: Yup.string().required('* Required').min(8, 'more then 8 character').test('unique', '* Should Contains Atleast one Uppercase, Lowercase, Digit, Special Character ', (value) => /[!@#$%^&*(),.?":{}|]/.test(value) && /[a-z]/.test(value) && /[A-Z]/.test(value) && /\d/.test(value)),
             dob: Yup.date().required('* Required'),
             gender: Yup.string().required('* Required'),
             tc: Yup.boolean().oneOf([true], "You must accept the terms and conditions").required("You must accept the terms and conditions")
@@ -101,23 +109,25 @@ const Signup = () => {
         onSubmit: values => {
             console.log(values);
             signUpUser(values);
-            navigate('/',{ replace: true });  // MAY BE IN TRY - BLOCK of axios api
         }
 
     })
 
     function Upper1stChar(str) {
-        return str[0].toUpperCase() + str.slice(1);
+        if (str && str.length > 0) {
+            return str[0].toUpperCase() + str.slice(1);
+        }
     }
+
     return (
         <>
             <Loading />
-            <EmailExist />
+            {/* <EmailExist /> */}
 
             {/* ******* remove contect just pass prop   */}
-            <userContext.Provider value={{ toggleVerifyEmail, setToggleVerifyEmail }}>  
-                <VerifyEmail email={formik.values.email} />
-            </userContext.Provider>
+            {/* <userContext.Provider value={{ toggleVerifyEmail, setToggleVerifyEmail }}> */}
+            <VerifyEmail email={formik.values.email} val={{ toggleVerifyEmail, setToggleVerifyEmail }} />
+            {/* </userContext.Provider> */}
 
             <h1>SignUp</h1>
             <div className='form-box'>
@@ -141,6 +151,8 @@ const Signup = () => {
                             {formik.touched.lastName && formik.errors.lastName ? (<div className='error'>{formik.errors.lastName}</div>) : null}</div>
                     </div>
 
+
+                    {/* ------ <EMAIL> -------- */}
                     <div className='grid-box-2'>
                         <label htmlFor="email">Email Address</label>
 
@@ -153,8 +165,6 @@ const Signup = () => {
 
                             {formik.touched.email && formik.errors.email ? (<div className='error'>{formik.errors.email}</div>) : null}
 
-                            {/* // when i include here `setEmail` and `email` ,error : too many re-renders. React limits the number of renders to prevent an infinite loop. */}
-                            {/* {(toggleVerifyEmail) && setEmail(formik.values.email)} */}
                             {(toggleVerifyEmail) ?
                                 <img src='check.png' className='toggleIcon' />
                                 : (formik.values.email == email) ? setToggleVerifyEmail(true)
@@ -165,6 +175,9 @@ const Signup = () => {
                             {formik.touched.verifyEmail && formik.errors.verifyEmail ? (<div className='error'>{formik.errors.verifyEmail}</div>) : null}
                         </div>
                     </div>
+
+                    {/* ------ </EMAIL> -------- */}
+
 
                     <div className='grid-box-2'>
                         <label htmlFor="cNo">Contact No</label>
@@ -178,13 +191,12 @@ const Signup = () => {
                     </div><br />
 
                     <div className='grid-box-2' ><label>Gender</label>
-                        {/* <div><label htmlFor='male'><Field type='radio' name='gender' value='M'/> Male</label>
-                            <label htmlFor='female'><Field type='radio' name='gender' value='F'/> Female</label>
+                        <div><label htmlFor='male'><input type="radio" name="gender" id="male" value='M' onChange={formik.handleChange} onBlur={formik.handleBlur}  /> Male</label>
+                            <label htmlFor='female'><input type="radio" name="gender" id="female" value='F' onChange={formik.handleChange}  onBlur={formik.handleBlur} /> Female</label>
                             {formik.touched.gender && formik.errors.gender ? <div className='error'>{formik.errors.gender}</div> : null}
-                        </div> */}
-                        <div><label htmlFor='male'><input type="radio" name="gender" id="male" value='M' onChange={formik.handleChange} checked={formik.values.gender === 'male'} /> Male</label>
-                            <label htmlFor='female'><input type="radio" name="gender" id="female" value='F' onChange={formik.handleChange} checked={formik.values.gender === 'female'} /> Female</label>
-                            {formik.touched.gender && formik.errors.gender ? <div className='error'>{formik.errors.gender}</div> : null}
+
+                            {/* {setTimeout(() => formik.values.gender == 'M' ? document.getElementById('male').checked = true : null,200)}
+                            {setTimeout(() => formik.values.gender == 'F' ? document.getElementById('female').checked = true : null,200)} */}
                         </div>
                     </div>
 
@@ -222,6 +234,7 @@ const Signup = () => {
                     </div>
                 </form>
             </div>
+            <p style={{ textAlign: 'center' }}>Already have Account ? <NavLink to={'/signin'}>SignIn</NavLink></p>
         </>
     )
 }
