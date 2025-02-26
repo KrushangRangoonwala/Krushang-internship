@@ -1,0 +1,12 @@
+.image-container {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    align-items: center;
+    gap: 500px;
+    margin: 50px 0px;
+}
+
+.image-container>img {
+    cursor: pointer;
+}

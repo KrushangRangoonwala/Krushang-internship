@@ -1,0 +1,64 @@
+/* Centering the container */
+.about-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light grey */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 380px;
+    /* max-width: 800px; */
+    margin: auto;
+    margin-top: 50px;
+  }
+  
+  /* Title styling */
+  .about-title {
+    font-size: 24px;
+    color: #444;
+    font-weight: bold;
+  }
+  
+  /* Rules list */
+  .about-rules {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 15px;
+  }
+  
+  /* Each rule styling */
+  .about-rules li {
+    font-size: 18px;
+    color: #666;
+    padding: 8px 0;
+    text-align: left;
+  }
+
+  .right_mark{
+    height: 18px;
+    margin-right: 10px;
+  }
+
+  .about-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .about-button:hover {
+    background-color: #218838;
+  }
+  
+  .marks{
+    text-align: right;
+    padding-right: 15px;
+  }
+  
+  /* th, td {
+    border-bottom: 0.5px solid gray;
+  } */

@@ -1,8 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router'
+import Home from './Pages/Home'
+import Category from './Pages/Category'
+import About from './Pages/About'
+import Quiz from './Pages/Quiz'
 
 
 function App() {
@@ -12,9 +14,10 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={}/>
-          <Route path='/' element={}/>
-          <Route path='/' element={}/>
+          <Route path='/' element={<Home />} />
+          <Route path='/category' element={<Category />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/quiz' element={<Quiz />} />
         </Routes>
       </BrowserRouter>
     </>
