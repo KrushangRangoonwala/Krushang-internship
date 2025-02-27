@@ -1,0 +1,57 @@
+/* Centering the result container */
+.result-container {
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    margin-top: 50px;
+    padding-bottom: 30px;
+  }
+  
+  /* Title styling */
+  .result-title {
+    font-size: 26px;
+    color: #444;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Individual result box */
+  .result-box {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+  }
+  
+  /* Final Score Box */
+  .total-box {
+    background-color: #ffebcd;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+  }
+  
+  /* Print Button */
+  .print-button {
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .print-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -5,6 +5,7 @@ import Home from './Pages/Home'
 import Category from './Pages/Category'
 import About from './Pages/About'
 import Quiz from './Pages/Quiz'
+import Result from './Pages/Result'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path='/category' element={<Category />} />
           <Route path='/about' element={<About />} />
           <Route path='/quiz' element={<Quiz />} />
+          <Route path='/result' element={<Result />} />
         </Routes>
       </BrowserRouter>
     </>

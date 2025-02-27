@@ -5,6 +5,8 @@ import { useNavigate } from "react-router";
 import NextPrevious from "../components/NextPrevious";
 import axios from "axios";
 import * as Yup from 'yup';
+import Loading from "../components/Loading";
+import TryAgain from "../components/TryAgain";
 
 
 const Category = () => {
@@ -12,22 +14,36 @@ const Category = () => {
   const doneImg = useRef(null);
   const [category, setCategory] = useState([])
   const [toggleDone, setToggleDone] = useState(false)
+  const [loading, setLoading] = useState(true)
+  const [tryAgain, setTryAgain] = useState(false)
 
   // let items = ["Math 🧮", "Science 🔬", "History 📜", "Geography 🌍", "Sports ⚽", "Animals 🦁", "Geography 🌍", "Sports ⚽", "Geography 🌍", "Sports ⚽", "Geography 🌍", "Sports ⚽"];
 
   async function getCategory() {
+    setLoading(true);
     try {
       let response = await axios.get('/getcategory');
       console.log(response.data.data);
       setCategory(response.data.data);
+      setLoading(false);
     } catch (err) {
-      console.log(err)
+      console.log(err);
       alert("Some error occured, please try agin leter");
+      setLoading(false);
+      setTryAgain(true);
     }
   }
 
   // useEffect(() => getCategory(), []) // this not valid because arraow function without {} (curly braces) should return a value
-  useEffect(() => { getCategory() }, [])
+  useEffect(() => {
+    let quiz = JSON.parse(localStorage.getItem('quiz'));
+    if (quiz && Object.keys(quiz).length > 0) {
+      getCategory()
+    } else {
+      alert('Please register your name fisrt');
+      navigate('/');
+    }
+  }, [])
 
   const formik = useFormik({
     initialValues: { name: '' },
@@ -51,6 +67,9 @@ const Category = () => {
 
   return (
     <>
+     {loading && <Loading />}
+     {tryAgain && <TryAgain />}
+
       <div className="category-container">
         <h1>Select Category of Quiz</h1>
         <div className="grid-container">
@@ -69,7 +88,7 @@ const Category = () => {
         <form onSubmit={formik.handleSubmit}>
           <input type="text" placeholder="Select category" className="home-input" name='name' disabled
             onChange={formik.handleChange} value={formik.values.name} />
-          {formik.errors.name ? (<div style={{ margin: '10px', fontFamily: 'monospace'}}>{formik.errors.name}</div>) : null}
+          {formik.errors.name ? (<div style={{ margin: '10px', fontFamily: 'monospace' }}>{formik.errors.name}</div>) : null}
 
           <button type="submit" className="home-button">
             Done
