@@ -40,11 +40,6 @@ const Quiz = () => {
         }
     }
 
-    // useEffect(() => {
-    //     console.log(user)
-    //     user && Object.keys(user).length > 0 && getQuizData();  // as react assign {}(null object) value to `user` from our useState hook; SO, need to check whether user is empty or not becasue if it is empty then it gives error 'cannot read property of `user`
-    // }, [user])
-
     useEffect(() => {
         let quiz = JSON.parse(localStorage.getItem('quiz'));
         if (quiz && Object.keys(quiz).length > 0) {
@@ -72,7 +67,7 @@ const Quiz = () => {
         }
     }
 
-    function disableOptionBtn(toggle){
+    function disableOptionBtn(toggle) {
         let options = document.getElementById('options').querySelectorAll('.option-button');
         let i = 0;
         while (i < options.length) {
@@ -101,7 +96,6 @@ const Quiz = () => {
 
         // Move to next question or show result
         setTimeout(() => {
-            // let passingMarks;
             selectedOption.style.backgroundColor = '#007bff';
             selectedOption.style.transition = 'background-color 0.3s ease';
             options[i].style.backgroundColor = '#007bff';
@@ -113,7 +107,7 @@ const Quiz = () => {
                 setToggleNextLevel(true)
             }
             disableOptionBtn(false);
-        }, 1000);
+        }, 100);
     };
 
     useEffect(() => {
@@ -121,14 +115,12 @@ const Quiz = () => {
     }, [level])
 
     useEffect(() => {
-    //     console.log(" currentQuestion ", currentQuestion, "quizData.length ", quizData.length)
-    //     console.log(!(currentQuestion < quizData.length - 1) && !ignoreFirstRender)
         if (ignoreFirstRender.current) {
             console.log(ignoreFirstRender.current);
             ignoreFirstRender.current = false;
             return;
         }
-console.log(toggleNextLevel)
+        console.log(toggleNextLevel)
         if (toggleNextLevel) {
             console.log("correctCount.length ", correctCount.length, " res.data.req_n ", passingMarks)
             if (correctCount.length >= passingMarks) { // chatGpt solve this  : here correctCount is not update,  from above setCorrectCount takes time to update , any solution?
@@ -143,18 +135,25 @@ console.log(toggleNextLevel)
                 } else {
                     // getAllLevelResult();
                     // setTimeout(() => {
-                        
+
                     // }, timeout);
                     navigate('/result');
                 }
 
             } else {
+                uploadResult();
                 alert(`Sorry, you aren't pass quiz`)
                 navigate('/')
             }
         }
     }, [toggleNextLevel, correctCount])
-
+    
+    function Upper1stChar(str) {
+        if (str && str.length > 0) {
+            return str[0].toUpperCase() + str.slice(1);
+        }
+    }
+    
     return (
         <>
             {loading && <Loading />}
@@ -163,8 +162,8 @@ console.log(toggleNextLevel)
 
                 <h1 className="quiz-title">Quiz Time! 🎯</h1>
                 <div className="quiz-title2">
-                    <h3> </h3>
-                    <h3 className="quiz-title" > <img src='start.png' height={30} /> Level: {level}</h3>
+                    <h3> {Upper1stChar(user.category)} </h3>
+                    <h3 className="quiz-title"> <img src='start.png' height={30} /> Level: {level == 1 ? 'Bronze' : level == 2 ? 'Silver' : level == 3 ? 'Gold' : null}</h3>
                 </div>
                 <div className="quiz-info">
                     <div className="quiz-info-left">

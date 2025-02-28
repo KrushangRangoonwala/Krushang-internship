@@ -21,7 +21,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/forgotPassword' element={<ForgotPassword />} />
           <Route path='/changePassword' element={<ChangePasword />} />
-          <Route path='/editDetails' element={<EditDetails />} />
+          <Route path='/editDetails/:id' element={<EditDetails />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -1,0 +1,60 @@
+/* Centering the input box */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+/* Input field container */
+.input-container {
+  position: relative;
+  width: 250px;
+}
+
+/* The input field */
+.input-container input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #999;
+  background: transparent;
+  outline: none;
+}
+
+/* Label (placeholder text) */
+.input-container label {
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-size: 16px;
+  color: #777;
+  transition: 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+/* Underline animation */
+.input-container .underline {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #007bff;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Animation when focused */
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+  top: -15px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.input-container input:focus ~ .underline {
+  transform: scaleX(1);
+}

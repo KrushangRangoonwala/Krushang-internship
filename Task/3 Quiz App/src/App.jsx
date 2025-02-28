@@ -6,6 +6,7 @@ import Category from './Pages/Category'
 import About from './Pages/About'
 import Quiz from './Pages/Quiz'
 import Result from './Pages/Result'
+import PrintResult from './Pages/PrintResult'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/quiz' element={<Quiz />} />
           <Route path='/result' element={<Result />} />
+          <Route path='/printResult' element={<PrintResult />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -6,17 +6,28 @@ import "../components/usercard.css";
 import VerifyEmail from '../components/VerifyEmail'
 import axios from 'axios'
 import Loading from '../components/Loading'
-import { NavLink, useLocation, useNavigate } from 'react-router'
+import { NavLink, useLocation, useNavigate, useParams } from 'react-router'
 
 const EditDetails = () => {
     let navigate = useNavigate();
     let location = useLocation();
+    const {id}=useParams()
     const [user, setUser] = useState({});
     const [initialValues, setInitialValues] = useState({})
     const [preview, setPreview] = useState(null)
     const [base64Str, setBase64Str] = useState('')
     const [showDp, setShowDp] = useState(false)
 
+    const getUser=async()=>{
+        const res=await axios.get(`get/${id}`)
+        formik.setValues(res.data.data)
+        console.log(res,"res")
+    }
+useEffect(()=>{
+    if(id){
+        getUser()
+    }
+},[id])
     useEffect(() => {
         setTimeout(() => {
             let token = JSON.parse(localStorage.getItem('token'));
@@ -32,20 +43,20 @@ const EditDetails = () => {
 
         console.log('clg ', location.state?.user)
         setUser(location.state?.user);
-        let userData = {
-            // profilePic: user?.image, // gives error ,it should be null because its type is file
-            profilePic: '',
-            firstName: location.state?.user.firstName,
-            lastName: location.state?.user.lastName,
-            email: location.state?.user.emailId,
-            cNo: location.state?.user.contactNo,
-            dob: location.state?.user.birthDate?.slice(0, 10),  // 2025-02-02T00:00:00
-            gender: location.state?.user.gender,
-        }
+        // let userData = {
+        //     // profilePic: user?.image, // gives error ,it should be null because its type is file
+        //     profilePic: '',
+        //     firstName: location.state?.user.firstName,
+        //     lastName: location.state?.user.lastName,
+        //     email: location.state?.user.emailId,
+        //     contactNo: location.state?.user.contactNo,
+        //     dob: location.state?.user.birthDate?.slice(0, 10),  // 2025-02-02T00:00:00
+        //     gender: location.state?.user.gender,
+        // }
         setBase64Str(location.state?.user.image);
-        formik.setValues(userData);
-        console.log("userData ", userData);
-        userData.gender == 'M' ? document.getElementById('male').checked = true : userData.gender == 'F' ? document.getElementById('female').checked = true : null;
+        // formik.setValues(userData);
+        // console.log("userData ", userData);
+        // userData.gender == 'M' ? document.getElementById('male').checked = true : userData.gender == 'F' ? document.getElementById('female').checked = true : null;
     }, [])
 
     useEffect(() => {
@@ -83,7 +94,7 @@ const EditDetails = () => {
             let response = await axios.put(`/edit/${location.state.user.id}`, {
                 "firstName": values.firstName,
                 "lastName": values.lastName,
-                "contactNo": `${values.cNo}`,
+                "contactNo": `${values.contactNo}`,
                 "birthDate": values.dob,
                 "gender": values.gender,
                 "image": base64Str
@@ -114,7 +125,7 @@ const EditDetails = () => {
             firstName: Yup.string().required('* Required').max(15, 'should be less then 15 letters').matches(/^[a-zA-z]+$/, "Should only contains letters"),
             lastName: Yup.string().required('* Required').max(15, 'should be less then 15 letters').matches(/^[a-zA-z]+$/, "Should only contains letters"),
             email: Yup.string().email('* Enter valid email').required('* Required'),
-            cNo: Yup.number().required('* Required').min(5999999999, '* Enter valid Contact No').max(9999999999, '* Should be of 10-digit'),
+            contactNo: Yup.number().required('* Required').min(5999999999, '* Enter valid Contact No').max(9999999999, '* Should be of 10-digit'),
             dob: Yup.date().required('* Required'),
             gender: Yup.string().required('* Required'),
         }),
@@ -191,9 +202,9 @@ const EditDetails = () => {
 
 
                     <div className='grid-box-2'>
-                        <label htmlFor="cNo">Contact No</label>
-                        <div><input id="cNo" name="cNo" type="number" className='input-text' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.cNo} />
-                            {formik.touched.cNo && formik.errors.cNo ? (<div className='error'>{formik.errors.cNo}</div>) : null}</div>
+                        <label htmlFor="contactNo">Contact No</label>
+                        <div><input id="contactNo" name="contactNo" type="number" className='input-text' onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.contactNo} />
+                            {formik.touched.contactNo && formik.errors.contactNo ? (<div className='error'>{formik.errors.contactNo}</div>) : null}</div>
                     </div>
                     <div className='grid-box-2'>
                         <label htmlFor='dob'> Birth Date</label>

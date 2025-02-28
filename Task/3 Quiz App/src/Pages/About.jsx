@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./about.css"; // Import CSS file
 import { useNavigate } from "react-router";
 import NextPrevious from "../components/NextPrevious";
@@ -6,8 +6,14 @@ import NextPrevious from "../components/NextPrevious";
 const About = () => {
   let navigate = useNavigate();
 
+  useEffect(() => {
+    document.getElementById('hiddenNextBtn').style.display = 'none';
+  },[])
+
   return (
     <>
+    <img src='doubt-unscreen.gif' className="gif-RHS"/>
+    <img src='start-unscreen.gif' className="gif-LHS"/>
       <div className="about-container">
         <h1 className="about-title">📜 Quiz Rules</h1>
         <ul className="about-rules">
@@ -21,28 +27,28 @@ const About = () => {
           <b>Quiz Structure</b>
           <li> <img src="mark.png" className="right_mark" /> Quiz has 3 levels </li>
           <li> 🎯 Total and Passing Marks for each level</li>
-          <li ><table style={{ marginLeft: 'auto', marginRight: 'auto'}}>
+          <li ><table style={{ marginLeft: 'auto', marginRight: 'auto'}}><tbody>
             <tr>
               <th style={{ paddingRight: '60px'}}></th>
               <th style={{ paddingRight: '10px'}}>Total marks</th>
               <th style={{ paddingRight: '10px'}}>Passing marks</th>
             </tr>
             <tr>
-              <td>level 1</td>
+              <td>Bronze</td>
               <td className="marks">5</td>
               <td className="marks">4</td>
             </tr>
             <tr>
-              <td>level 2</td>
+              <td>Silver</td>
               <td className="marks">5</td>
               <td className="marks">3</td>
             </tr>
             <tr>
-              <td>level 3</td>
+              <td>Gold</td>
               <td className="marks">10</td>
               <td className="marks">7</td>
             </tr>
-            </table></li>
+            </tbody></table></li>
             <li> <img src="mark.png" className="right_mark" /> You can't quit the Quiz, once it start 🏁</li>
         </ul>
       </div>
@@ -51,7 +57,7 @@ const About = () => {
         Start Quiz 🚀
       </button>
 
-      <NextPrevious previous={'category'}/>
+      <NextPrevious previous={'/category'}/>
     </>
   );
 };

@@ -18,6 +18,7 @@ const Home = () => {
     let quiz = JSON.parse(localStorage.getItem('quiz'));
     if (quiz?.name) {
       formik.setFieldValue('name', quiz.name);
+      document.getElementById('previousResult').style.display = '';
     }
   }, [])
 
@@ -76,6 +77,9 @@ const Home = () => {
           </button>
         </form>
       </div>
+      <button type="submit" id='previousResult' className="home-button" style={{marginTop: '60px',display: 'none'}} onClick={() => navigate('/result')}>
+            Show Previous Result
+          </button>
     </>
   );
 };

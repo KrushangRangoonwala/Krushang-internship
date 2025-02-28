@@ -1,57 +1,106 @@
 /* Centering the result container */
 .result-container {
-    text-align: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 600px;
-    margin: auto;
-    margin-top: 50px;
-    padding-bottom: 30px;
-  }
-  
-  /* Title styling */
-  .result-title {
-    font-size: 26px;
-    color: #444;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  
-  /* Individual result box */
-  .result-box {
-    background-color: white;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 15px;
-  }
-  
-  /* Final Score Box */
-  .total-box {
-    background-color: #ffebcd;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
-  /* Print Button */
-  .print-button {
-    margin-top: 20px;
-    padding: 12px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .print-button:hover {
-    background-color: #0056b3;
-  }
-  
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 1000px; /* Make it wider */
+  margin: auto;
+  margin-top: 15px;
+  padding-bottom: 30px;
+}
+
+/* Title styling */
+.result-title {
+  font-size: 26px;
+  color: #444;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Container for result boxes to align them horizontally */
+.result-box-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap if they exceed width */
+  justify-content: center; /* Center items horizontally */
+  gap: 15px; /* Space between boxes */
+  margin-bottom: 20px;
+}
+
+/* Individual result box */
+.result-box {
+  background-color: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  flex: 1; /* Make boxes flexible */
+  /* min-width: 250px; Prevent boxes from becoming too small */
+  /* max-width: 300px; Limit box width */
+  text-align: center;
+  width: 300px;
+}
+
+/* Final Score Box */
+.total-box {
+  background-color: #ffebcd;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+/* Print Button */
+.print-button {
+  margin-top: 20px;
+  padding: 12px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.print-button:hover {
+  background-color: #0056b3;
+}
+
+.gif{
+  display: flex;
+  flex-wrap: wrap; /* Allow items to wrap if they exceed width */
+  justify-content: center; /* Center items horizontally */
+  gap: 15px; /* Space between boxes */
+  margin-bottom: 20px;
+  height: 200px;
+  position: relative;
+}
+
+.grid-box {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  gap: 10px 35px;
+  /* text-align: center; */
+  /* margin-top: 25px; */
+  /* border: 1px solid gray; */
+  /* padding: 20px 15px; */
+  /* border-radius: 20px; */
+  /* width: 850px; */
+
+}
+
+/* Center the GIFs above the result boxes */
+.gif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Space between the two GIFs */
+    margin-bottom: 20px; /* Space between GIFs and result boxes */
+}
+
+.gif-container img {
+    width: 150px; /* Adjust size */
+    height: auto;
+}

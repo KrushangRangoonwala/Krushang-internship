@@ -70,7 +70,7 @@ const AllUser = () => {
                             <td>{value.birthDate.slice(0, 10)}</td>
                             <td>{(value.gender == 'M') ? 'male' : (value.gender == 'F') ? 'female' : null}</td>
                             <td>{value.role}</td>
-                            <td style={{ width: '40px', textAlign: 'center' }} onClick={() => navigate('/editDetails', { state: { user: value } })}><NavLink><img src="pencil.png" style={{ height: '20px' }} /></NavLink></td>
+                            <td style={{ width: '40px', textAlign: 'center' }} onClick={() => navigate(`/editDetails/${value.id}`, { state: { user: value } })}><NavLink><img src="pencil.png" style={{ height: '20px' }} /></NavLink></td>
                             <td style={{ width: '40px', textAlign: 'center' }} onClick={() => deleteUser(value)}><NavLink><img src="trash.png" style={{ height: '20px' }} /></NavLink></td>
                         </tr>
                     )}

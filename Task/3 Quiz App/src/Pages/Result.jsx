@@ -1,3 +1,4 @@
+// this result.jsx file
 import React, { useEffect, useState } from "react";
 import "./result.css"; // Import CSS file
 import { useLocation, useNavigate } from "react-router";
@@ -10,28 +11,13 @@ const Result = () => {
     let location = useLocation();
     const [user, setUser] = useState({})
     const [result, setResult] = useState([{}]);
+    console.log("result ",result);
     const [totalQuestions, setTotalQuestions] = useState(0)
     const [totalCorrect, setTotalCorrect] = useState(0)
+    console.log(totalCorrect,"totalCorrect")
     const [totalIncorrect, setTotalIncorrect] = useState(0)
     const [loading, setLoading] = useState(true)
     const [tryAgain, setTryAgain] = useState(false)
-
-    // Function to print result
-    async function handlePrint() {
-        try {
-            const response = await axios.get(`getresult/${user.id}`, {
-                responseType: 'blob',                                   // Important: Treat response as binary
-            });
-            // window.open(`http://192.168.1.184:7000/quiz/getresult/${user.id}`)
-
-            const pdfBlob = new Blob([response.data], { type: 'application/pdf' });
-            const pdfUrl = URL.createObjectURL(pdfBlob);
-            window.open(pdfUrl, '_blank'); // Opens PDF in new tab
-
-        } catch (error) {
-            console.error('Error downloading PDF:', error);
-        }
-    }
 
     function setData2() {
         console.log('sdfsd')
@@ -62,8 +48,8 @@ const Result = () => {
     // }, [totalCorrect, totalIncorrect, totalQuestions]); // Runs when these states update
 
     useEffect(() => {
-        console.log(result.length)
-        result.length > 0 && setData2();
+        // console.log(result.length)
+        result?.length > 0 && setData2();
         setLoading(false);
     }, [result])
 
@@ -78,7 +64,7 @@ const Result = () => {
                 // setLoading(false);
                 // setData();  //put it inside useEffect to make in synchronouse
 
-                if (response.data.data.length == 0) {
+                if (response.data.data?.length == 0) {
                     alert('Please Complete your quiz first')
                     navigate('/quiz')
                 }
@@ -91,7 +77,7 @@ const Result = () => {
     }
 
     useEffect(() => {
-        console.log('dfsdfsd')
+        // console.log('dfsdfsd')
         let quiz = JSON.parse(localStorage.getItem('quiz'));
         if (quiz && Object.keys(quiz).length > 0) {
             setUser(quiz);
@@ -107,20 +93,36 @@ const Result = () => {
             {loading && <Loading />}
             {tryAgain && <TryAgain />}
 
+            <div className="gif-container">
+                <img src="banners-unscreen.gif" alt="Celebration Banner" />
+                <img src="celebration-unscreen.gif" alt="Celebration GIF" />
+            </div>
+
             <div className="result-container">
                 <h1 className="result-title">Quiz Result 📊</h1>
-
-                {/* {result && console.log(result)} */}
-                {result && result.map((value, index) =>   // never put curly braces after array function inside map, othervise u don't get output, and no error will display
-                    <div className="result-box" key={index}>
-                        <h2>Level {value.level}</h2>
-                        <p>📝 Total Questions: {value.question?.length}</p>
-                        <p>✅ Correct: {value.correct == '' ? 0 : value.correct?.split(',').length} | ❌ Incorrect: {value.incorrect == '' ? 0 : value.incorrect?.split(',').length}</p>
+                <div className="quiz-info" style={{ marginBottom: '10px', height: '90px'}}>
+                    <div className="quiz-info-left">
+                        <p>Name</p>
+                        <h2>{user.name}</h2>
                     </div>
-                    // setTotalCorrect(totalCorrect + value.correct?.length);    // this three lines gives error : 'Too many re-renders', so put it in a diffrent functin `setData()`
-                    // setTotalIncorrect(totalIncorrect + value.incorrect?.length);
-                    // setTotalQuestions(totalQuestions + value.question?.length);
-                )}
+                    <div className="quiz-info-right">
+                        <p>Category</p>
+                        <h2>{user.category}</h2>
+                    </div>
+                </div>
+                {result && console.log(result)}
+                <div className="result-box-container">
+                    {result && result.map((value, index) =>   // never put curly braces after array function inside map, othervise u don't get output, and no error will display
+                        <div className="result-box" key={index}>
+                            <h2> {value.level == 1 ? 'Bronze' : value.level == 2 ? 'Silver' : value.level == 3 ? 'Gold' : null}</h2>
+                            <p>📝 Total Questions: {value.question?.length}</p>
+                            <p>✅ Correct: {value.correct == '' ? 0 : value.correct?.split(',').length} | ❌ Incorrect: {value.incorrect == '' ? 0 : value.incorrect?.split(',').length}</p>
+                        </div>
+                        // setTotalCorrect(totalCorrect + value.correct?.length);    // this three lines gives error : 'Too many re-renders', so put it in a diffrent functin `setData()`
+                        // setTotalIncorrect(totalIncorrect + value.incorrect?.length);
+                        // setTotalQuestions(totalQuestions + value.question?.length);
+                    )}
+                </div>
 
                 <div className="total-box">
                     <h2>Final Score 🏆</h2>
@@ -129,10 +131,18 @@ const Result = () => {
                     {/* <p> Total Score: {totalScore} Points</p> */}
                 </div>
 
-                <button className="print-button" onClick={handlePrint}>🖨️ Print Result</button>
+                <button className="print-button" onClick={() => window.open('http://localhost:5173/printResult',"_blank")}>🖨️ Print Result</button>
             </div>
+            <button type="submit" id='previousResult' className="home-button" style={{ marginTop: '15px',  }} onClick={() => navigate('/')}>
+                Want to restart Quiz
+            </button>
         </>
     );
 };
 
 export default Result;
+
+// below result.css file
+
+
+//chatgpt :  you make its style vertically long , but now make horizontally long 

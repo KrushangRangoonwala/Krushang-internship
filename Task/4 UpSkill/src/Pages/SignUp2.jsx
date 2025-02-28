@@ -2,28 +2,24 @@ import React, { useEffect, useState } from 'react'
 import {  useFormik } from 'formik'
 import * as Yup from 'yup'
 import './style.css'
-import VerifyEmail from '../components/VerifyEmail'
+// import VerifyEmail from '../components/VerifyEmail'
 import axios from 'axios'
-import Loading from '../components/Loading'
-import { userContext } from '../context/context'
-import EmailExist from '../components/EmailExist'
+// import Loading from '../components/Loading'
+// import { userContext } from '../context/context'
+// import EmailExist from '../components/EmailExist'
 import { NavLink, useNavigate } from 'react-router'
 
-axios.defaults.baseURL = 'http://192.168.1.184:5000/user'
+// axios.defaults.baseURL = 'http://192.168.1.184:5000/user'
 
 let initialValues = {
-    firstName: '',
-    lastName: '',
+    name: '',
     email: '',
-    cNo: '',
     psw: '',
     confirmPsw: '',
-    dob: '',
-    gender: '',
-    tc: '',
+
 }
 
-const Signup = () => {
+const SignUp2 = () => {
     const [pswFlag, setPswFlag] = useState(true);
     const [cnpswFlag, setCnPswFlag] = useState(true);
     const [toggleVerifyEmail, setToggleVerifyEmail] = useState(false);
@@ -244,4 +240,4 @@ const Signup = () => {
     )
 }
 
-export default Signup
+export default SignUp2
