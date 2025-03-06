@@ -7,11 +7,11 @@ import { db } from '../firebseConfig';
 function App() {
   const [user, setUser] = useState(null);
 
-  async function addData() {
+  async function addUser() {
     try {
       const docRef = await addDoc(collection(db, "users"), {
-        name: 'Kush',
-        email: 'kush@123gmail.com',
+        name: 'Kriyang',
+        email: 'Kriyang@123gmail.com',
         age: 21,
       });
       console.log("User added with Id : ", docRef.id)
@@ -21,7 +21,7 @@ function App() {
     }
   }
 
-  async function fetchUser() {
+  async function readUser() {
     try {
       const querySnapshot = await getDocs(collection(db, "users"));
       querySnapshot.forEach((doc) => console.log(doc.id + " " + JSON.stringify(doc.data())));
@@ -54,8 +54,8 @@ function App() {
 
   return (
     <>
-      <button onClick={addData}>Create</button>
-      <button onClick={fetchUser}>Fetch</button>
+      <button onClick={addUser}>Create</button>
+      <button onClick={readUser}>Fetch</button>
       <button onClick={() => updateUser('lBAxct6XZWaK4SE8sL51')}>Update</button>
       <button onClick={() => deleteUser('lBAxct6XZWaK4SE8sL51')}>Delete</button>
     </>
