@@ -11,35 +11,35 @@ import { NavLink, useLocation, useNavigate, useParams } from 'react-router'
 const EditDetails = () => {
     let navigate = useNavigate();
     let location = useLocation();
-    const {id}=useParams()
+    const { id } = useParams()
     const [user, setUser] = useState({});
     const [initialValues, setInitialValues] = useState({})
     const [preview, setPreview] = useState(null)
     const [base64Str, setBase64Str] = useState('')
     const [showDp, setShowDp] = useState(false)
 
-    const getUser=async()=>{
-        const res=await axios.get(`get/${id}`)
+    const getUser = async () => {
+        const res = await axios.get(`get/${id}`)
         formik.setValues(res.data.data)
-        console.log(res,"res")
+        console.log(res, "res")
     }
-useEffect(()=>{
-    if(id){
-        getUser()
-    }
-},[id])
+    useEffect(() => {
+        if (id) {
+            getUser()
+        }
+    }, [id])
     useEffect(() => {
         setTimeout(() => {
             let token = JSON.parse(localStorage.getItem('token'));
             console.log('token ', token);
             if (!token) {
-              alert('Please first SignIn')
-              navigate('/signin');
+                alert('Please first SignIn')
+                navigate('/signin');
             } else if (token.length === 0) {
-              alert('Please first SignIn')
-              navigate('/signin');
+                alert('Please first SignIn')
+                navigate('/signin');
             }
-          }, 500);
+        }, 500);
 
         console.log('clg ', location.state?.user)
         setUser(location.state?.user);
