@@ -1,0 +1,19 @@
+- `/` route -> <home/> -> addtask, view tasks,  login ? home
+- 
+
+
+- signup, login, add task, edit task na pages banavela 6
+- task ma Create , edit, view and delete ni functionality kari 6
+- localstorage ma task and user data store karavelu 6
+
+
+- signup, login, add task, edit task, view task - pages nu testing baki 6
+- logout -> localstorage(user) -> delete
+- view task nu page baki 6 -> all tasks table
+- authorization baki 6  
+    -> SignUp // localstorage(allUsers) -> have all users data 
+    -> login // match data with localstorage(allUsers) and give localStorage(token, atob(email))
+    -> on every request (token = localStorage.getItem(btoa(token))) -> match token to localSTorage(tasks)
+
+- Role-based task display baki 6 (admin, manager, user)
+    -<AuthGraurd> </AuthGraurd>
