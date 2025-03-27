@@ -1,0 +1,103 @@
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #ffffff;
+}
+
+.signup-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    /* Reduced width */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.signup-form h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+.signup-form input {
+    width: 90%;
+    /* Adjust width to prevent full stretch */
+    padding: 12px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    display: block;
+}
+
+.signup-form button {
+    width: 90%;
+    /* Match button width with input */
+    padding: 12px;
+    background: #007bff;
+    border: none;
+    color: white;
+    font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.signup-form button:hover {
+    background: #0056b3;
+}
+
+.error {
+    color: red;
+    position: absolute;
+    bottom: -20px;
+    left: 16px;
+}
+
+.input-div-container {
+    position: relative;
+}
+
+.input-error {
+    margin-bottom: 33px;
+}
+
+.toggleIcon {
+    height: 30px;
+    position: absolute;
+    right: 13px;
+    top: 7px;
+}
+
+.sideIcon {
+    position: relative;
+}
+.link{
+    color: blue;
+    cursor: pointer;
+}
+
+.auth-container {
+    width: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    /* margin-left: 33vw; */
+    margin-top: 18vh;
+  }
+
+  .center {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    /* align-items: center; */
+    /* height: 100vh;  */
+  }
+  

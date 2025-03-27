@@ -1,0 +1,48 @@
+/* Centering the table container */
+.table-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #e3f2fd; /* Light blue background */
+}
+
+/* Table styling */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Header styling */
+th {
+    background-color: rgb(109, 142, 165); /* Updated color */
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Row styling */
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Alternate row colors */
+tr:nth-child(even) {
+    background-color: #d3e1eb; /* Slightly lighter shade */
+}
+
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Hover effect */
+tr:hover {
+    background-color: #b0c4de; /* Subtle blue shade */
+    transition: 0.3s;
+}
