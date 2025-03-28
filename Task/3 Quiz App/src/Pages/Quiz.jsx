@@ -26,29 +26,29 @@ const Quiz = () => {
         setLoading(true);
         console.log('level ', level)
         console.log(user.category);
-        try {
-            let response = await axios.post('/getquestions', { category: user.category, level: level });
-            console.log(response.data.data);
-            setQuizData(response.data.data);
-            setPassingMarks(response.data.req_n);
-            setLoading(false);
-        } catch (err) {
-            console.log(err)
-            alert('Some error occured, please try again leter');
-            setLoading(false)
-            setTryAgain(true)
-        }
+        // try {
+        //     let response = await axios.post('/getquestions', { category: user.category, level: level });
+        //     console.log(response.data.data);
+        //     setQuizData(response.data.data);
+        //     setPassingMarks(response.data.req_n);
+        //     setLoading(false);
+        // } catch (err) {
+        //     console.log(err)
+        //     alert('Some error occured, please try again leter');
+        //     setLoading(false)
+        //     setTryAgain(true)
+        // }
     }
 
     useEffect(() => {
         let quiz = JSON.parse(localStorage.getItem('quiz'));
-        if (quiz && Object.keys(quiz).length > 0) {
-            setuser(quiz); // runs useEffect[user] 
-            setLevel(1);
-        } else {
-            alert('Please register your name fisrt');
-            navigate('/');
-        }
+        // if (quiz && Object.keys(quiz).length > 0) {
+        //     setuser(quiz); // runs useEffect[user] 
+        //     setLevel(1);
+        // } else {
+        //     alert('Please register your name fisrt');
+        //     navigate('/');
+        // }
     }, [])
 
     async function uploadResult() {
@@ -110,43 +110,43 @@ const Quiz = () => {
         }, 100);
     };
 
-    useEffect(() => {
-        level != 0 && getQuizData();
-    }, [level])
+    // useEffect(() => {
+    //     level != 0 && getQuizData();
+    // }, [level])
 
-    useEffect(() => {
-        if (ignoreFirstRender.current) {
-            console.log(ignoreFirstRender.current);
-            ignoreFirstRender.current = false;
-            return;
-        }
-        console.log(toggleNextLevel)
-        if (toggleNextLevel) {
-            console.log("correctCount.length ", correctCount.length, " res.data.req_n ", passingMarks)
-            if (correctCount.length >= passingMarks) { // chatGpt solve this  : here correctCount is not update,  from above setCorrectCount takes time to update , any solution?
-                uploadResult();
-                if (level < 3) {
-                    setLevel(level + 1);
-                    setToggleNextLevel(false);
-                    setCorrectCount([]);
-                    setIncorrectCount([]);
-                    setCurrentQuestion(0);
-                    alert(`Quiz level ${level} Completed! 🎉\nMove to next level`);
-                } else {
-                    // getAllLevelResult();
-                    // setTimeout(() => {
+    // useEffect(() => {
+    //     if (ignoreFirstRender.current) {
+    //         console.log(ignoreFirstRender.current);
+    //         ignoreFirstRender.current = false;
+    //         return;
+    //     }
+    //     console.log(toggleNextLevel)
+    //     if (toggleNextLevel) {
+    //         console.log("correctCount.length ", correctCount.length, " res.data.req_n ", passingMarks)
+    //         if (correctCount.length >= passingMarks) { // chatGpt solve this  : here correctCount is not update,  from above setCorrectCount takes time to update , any solution?
+    //             uploadResult();
+    //             if (level < 3) {
+    //                 setLevel(level + 1);
+    //                 setToggleNextLevel(false);
+    //                 setCorrectCount([]);
+    //                 setIncorrectCount([]);
+    //                 setCurrentQuestion(0);
+    //                 alert(`Quiz level ${level} Completed! 🎉\nMove to next level`);
+    //             } else {
+    //                 // getAllLevelResult();
+    //                 // setTimeout(() => {
 
-                    // }, timeout);
-                    navigate('/result');
-                }
+    //                 // }, timeout);
+    //                 navigate('/result');
+    //             }
 
-            } else {
-                uploadResult();
-                alert(`Sorry, you aren't pass quiz`)
-                navigate('/')
-            }
-        }
-    }, [toggleNextLevel, correctCount])
+    //         } else {
+    //             uploadResult();
+    //             alert(`Sorry, you aren't pass quiz`)
+    //             navigate('/')
+    //         }
+    //     }
+    // }, [toggleNextLevel, correctCount])
     
     function Upper1stChar(str) {
         if (str && str.length > 0) {
@@ -156,8 +156,8 @@ const Quiz = () => {
     
     return (
         <>
-            {loading && <Loading />}
-            {tryAgain && <TryAgain />}
+            {/* {loading && <Loading />}
+            {tryAgain && <TryAgain />} */}
             <div className="quiz-container">
 
                 <h1 className="quiz-title">Quiz Time! 🎯</h1>
@@ -165,6 +165,7 @@ const Quiz = () => {
                     <h3> {Upper1stChar(user.category)} </h3>
                     <h3 className="quiz-title"> <img src='start.png' height={30} /> Level: {level == 1 ? 'Bronze' : level == 2 ? 'Silver' : level == 3 ? 'Gold' : null}</h3>
                 </div>
+                
                 <div className="quiz-info">
                     <div className="quiz-info-left">
                         <p>📝 Total Questions: {quizData?.length}</p>
